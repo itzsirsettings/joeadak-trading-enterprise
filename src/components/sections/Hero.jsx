@@ -6,12 +6,14 @@ import { MorphText } from '@/components/ui/MorphText'
 import { InfiniteGrid } from '@/components/ui/InfiniteGrid'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { STATS } from '../../config/siteConfig'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 
 
 const Hero = () => {
   const containerRef = useRef(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const isMobile = useIsMobile()
   
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 500], [0, 200])
@@ -98,26 +100,26 @@ const Hero = () => {
       <div className="container-custom relative z-20 pt-32 pb-20">
         <motion.div
           className="max-w-5xl mx-auto text-center"
-          variants={containerVariants}
-          initial="hidden"
+          variants={isMobile ? {} : containerVariants}
+          initial={isMobile ? "visible" : "hidden"}
           animate="visible"
         >
 
 
           <motion.h1
-            variants={itemVariants}
+            variants={isMobile ? {} : itemVariants}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-[1.1]"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
           >
             <motion.span 
               className="block mb-1"
-              animate={floatAnimation}
+              animate={isMobile ? {} : floatAnimation}
             >
               Delivering Professional
             </motion.span>
             <motion.span 
               className="block text-secondary mb-1"
-              animate={floatAnimation}
+              animate={isMobile ? {} : floatAnimation}
               transition={{ delay: 0.2 }}
             >
               <MorphText
@@ -125,19 +127,19 @@ const Hero = () => {
                 textClassName="text-secondary"
                 animationType="slideUp"
                 interval={2500}
-                disabled={false}
+                disabled={isMobile}
               />
             </motion.span>
             <motion.span 
               className="block"
-              animate={floatAnimation}
+              animate={isMobile ? {} : floatAnimation}
               transition={{ delay: 0.4 }}
             >
               with Excellence
             </motion.span>
             <motion.span 
               className="block"
-              animate={floatAnimation}
+              animate={isMobile ? {} : floatAnimation}
               transition={{ delay: 0.6 }}
             >
               & Integrity
@@ -145,7 +147,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            variants={itemVariants}
+            variants={isMobile ? {} : itemVariants}
             className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             Flexible Freelance & Consulting Services for Businesses, 
@@ -154,7 +156,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            variants={itemVariants}
+            variants={isMobile ? {} : itemVariants}
             className="flex flex-col sm:flex-row gap-3 justify-center items-center"
           >
             <Button variant="moving" size="sm">
@@ -177,7 +179,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            variants={itemVariants}
+            variants={isMobile ? {} : itemVariants}
             className="mt-12 flex flex-wrap justify-center gap-6"
           >
             <ScrollReveal animation="fadeUp" delay={0.1}>
@@ -224,8 +226,8 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div
-        variants={bounceVariants}
-        initial="hidden"
+        variants={isMobile ? {} : bounceVariants}
+        initial={isMobile ? "visible" : "hidden"}
         animate="visible"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
         style={{ opacity }}

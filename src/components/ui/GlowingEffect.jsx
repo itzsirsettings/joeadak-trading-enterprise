@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useRef } from "react"
 import { animate } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { useIsMobile } from "@/hooks/useIsMobile"
 
 export function GlowingEffect({
   blur = 0,
@@ -12,8 +13,11 @@ export function GlowingEffect({
   className,
   movementDuration = 2,
   borderWidth = 1,
-  disabled = true,
+  disabled: propDisabled = true,
 }) {
+  const isMobile = useIsMobile()
+  const disabled = propDisabled || isMobile
+
   const containerRef = useRef(null)
   const lastPosition = useRef({ x: 0, y: 0 })
   const animationFrameRef = useRef(null)
