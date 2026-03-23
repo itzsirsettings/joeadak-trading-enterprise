@@ -98,90 +98,90 @@ const Hero = () => {
 
       {/* Content Container */}
       <div className="container-custom relative z-20 pt-32 pb-20">
-        <motion.div
-          className="max-w-5xl mx-auto text-center"
-          variants={isMobile ? {} : containerVariants}
-          initial={isMobile ? "visible" : "hidden"}
-          animate="visible"
-        >
-
-
-          <motion.h1
-            variants={isMobile ? {} : itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-[1.1]"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-          >
-            <motion.span 
-              className="block mb-1"
-              animate={isMobile ? {} : floatAnimation}
-            >
-              Delivering Professional
-            </motion.span>
-            <motion.span 
-              className="block text-secondary mb-1"
-              animate={isMobile ? {} : floatAnimation}
-              transition={{ delay: 0.2 }}
-            >
-              <MorphText
-                words={morphWords}
-                textClassName="text-secondary"
-                animationType="slideUp"
-                interval={2500}
-                disabled={isMobile}
-              />
-            </motion.span>
-            <motion.span 
-              className="block"
-              animate={isMobile ? {} : floatAnimation}
-              transition={{ delay: 0.4 }}
-            >
-              with Excellence
-            </motion.span>
-            <motion.span 
-              className="block"
-              animate={isMobile ? {} : floatAnimation}
-              transition={{ delay: 0.6 }}
-            >
-              & Integrity
-            </motion.span>
-          </motion.h1>
-
-          <motion.p
-            variants={isMobile ? {} : itemVariants}
-            className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
-          >
-            Flexible Freelance & Consulting Services for Businesses, 
-            <br className="hidden sm:block" />
-            Communities, and Organizations
-          </motion.p>
-
           <motion.div
-            variants={isMobile ? {} : itemVariants}
-            className="flex flex-col sm:flex-row gap-3 justify-center items-center"
+            className="max-w-5xl mx-auto text-center"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <Button variant="moving" size="sm">
-              <Link to="/contact" className="flex items-center gap-2">
-                <span>Work With Us</span>
-                <motion.i
-                  className="fas fa-arrow-right text-xs"
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-[1.1]"
+              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+            >
+              <motion.span 
+                className="block mb-1"
+                animate={isMobile ? { y: 0 } : floatAnimation}
+              >
+                Delivering Professional
+              </motion.span>
+              <motion.span 
+                className="block text-secondary mb-1"
+                animate={isMobile ? { y: 0 } : floatAnimation}
+                transition={{ delay: 0.2 }}
+              >
+                <MorphText
+                  words={morphWords}
+                  textClassName="text-secondary"
+                  animationType="slideUp"
+                  interval={2500}
+                  disabled={isMobile}
                 />
-              </Link>
-            </Button>
-            
-            <Button variant="moving" size="sm">
-              <Link to="/contact" className="flex items-center gap-2">
-                <i className="fas fa-file-invoice text-xs"></i>
-                <span>Get a Quote</span>
-              </Link>
-            </Button>
-          </motion.div>
+              </motion.span>
+              <motion.span 
+                className="block"
+                animate={isMobile ? { y: 0 } : floatAnimation}
+                transition={{ delay: 0.4 }}
+              >
+                with Excellence
+              </motion.span>
+              <motion.span 
+                className="block"
+                animate={isMobile ? { y: 0 } : floatAnimation}
+                transition={{ delay: 0.6 }}
+              >
+                & Integrity
+              </motion.span>
+            </motion.h1>
 
-          <motion.div
-            variants={isMobile ? {} : itemVariants}
-            className="mt-12 flex flex-wrap justify-center gap-6"
-          >
+            <motion.p
+              variants={itemVariants}
+              className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+              Flexible Freelance & Consulting Services for Businesses, 
+              <br className="hidden sm:block" />
+              Communities, and Organizations
+            </motion.p>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-3 justify-center items-center"
+            >
+              <Button variant="moving" size="sm">
+                <Link to="/contact" className="flex items-center gap-2">
+                  <span>Work With Us</span>
+                  <motion.i
+                    className="fas fa-arrow-right text-xs"
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+                </Link>
+              </Button>
+              
+              <Button variant="moving" size="sm">
+                <Link to="/contact" className="flex items-center gap-2">
+                  <i className="fas fa-file-invoice text-xs"></i>
+                  <span>Get a Quote</span>
+                </Link>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="mt-12 flex flex-wrap justify-center gap-6"
+            >
             <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="flex items-center gap-2">
                 <motion.div
