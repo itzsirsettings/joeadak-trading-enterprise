@@ -86,14 +86,14 @@ const Hero = () => {
     <section 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen overflow-hidden"
+      className="relative min-h-screen overflow-hidden flex flex-col justify-center"
     >
       {/* Infinite Grid Background */}
       <InfiniteGrid
         showPattern={true}
         gridSize={40}
         speed={0.5}
-        className="min-h-screen"
+        className="absolute inset-0 z-0 w-full h-full min-h-screen min-w-full"
       />
 
       {/* Content Container */}
