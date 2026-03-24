@@ -41,17 +41,17 @@ export function CallToAction({
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-6">
+      <div className="flex flex-col sm:flex-row items-center justify-center sm:gap-6 mt-8">
         <a 
           href={`tel:${phoneNumber.replace(/\s/g, '')}`} 
-          className="bg-gold text-deepBlue w-full sm:w-auto justify-center font-semibold px-6 py-3 transition-all duration-300 hover:bg-yellow-500 hover:shadow-gold flex items-center"
+          className="bg-gold text-deepBlue w-full sm:w-auto justify-center font-semibold px-6 py-4 transition-all duration-300 hover:bg-yellow-500 hover:shadow-gold flex items-center mb-6 sm:mb-0"
         >
           <i className="fas fa-phone-alt mr-3 text-sm"></i>
           {phoneNumber}
         </a>
         <a 
           href={buttonLink} 
-          className="bg-transparent border-2 border-gold text-gold w-full sm:w-auto justify-center font-semibold px-6 py-3 transition-all duration-300 hover:bg-gold hover:text-deepBlue flex items-center"
+          className="bg-transparent border-2 border-gold text-gold w-full sm:w-auto justify-center font-semibold px-6 py-4 transition-all duration-300 hover:bg-gold hover:text-deepBlue flex items-center"
         >
           {buttonText} <ArrowRight className="ml-3 size-4" />
         </a>
