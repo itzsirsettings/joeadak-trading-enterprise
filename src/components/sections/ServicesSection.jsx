@@ -3,19 +3,8 @@ import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Briefcase, CalendarCheck, Settings, Lightbulb, Users, Target } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal'
 import { Card, CardContent } from '@/components/ui/Card'
-import { cn } from '@/lib/utils'
-
-const logger = {
-  info: (context, message, data = {}) => {
-    console.info(`[ServicesSection] ${context}:`, message, data)
-  },
-  error: (context, error, data = {}) => {
-    console.error(`[ServicesSection] ${context}:`, error, data)
-  }
-}
 
 const services = [
   {
@@ -70,19 +59,19 @@ const ServiceCard = ({ service, index }) => {
       <Link to="/services">
         <Card 
           variant="lifted" 
-          className="group min-h-[14rem] cursor-pointer hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0)] transition-all duration-300 overflow-hidden"
+          className="group min-h-[14rem] cursor-pointer hover:-translate-y-1 transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-gold"
         >
           <CardContent className="flex flex-col h-full justify-between gap-3 p-0">
             <div className="relative flex flex-1 flex-col gap-3 p-4">
               <motion.div
-                className="w-fit rounded-lg bg-secondary/10 p-2 group-hover:bg-secondary/20 transition-colors"
+                className="w-fit bg-gold/10 p-2 group-hover:bg-gold/20 transition-colors"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Icon className="h-4 w-4 text-secondary" />
+                <Icon className="h-4 w-4 text-gold" />
               </motion.div>
               <div className="space-y-2">
-                <h3 className="text-base font-bold text-primary leading-tight">
+                <h3 className="text-base font-bold text-deepBlue leading-tight">
                   {service.title}
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
@@ -98,13 +87,13 @@ const ServiceCard = ({ service, index }) => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.4 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-deepBlue/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-2 right-2">
                 <motion.div
-                  className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center"
+                  className="w-6 h-6 bg-gold flex items-center justify-center"
                   whileHover={{ scale: 1.2 }}
                 >
-                  <i className="fas fa-arrow-right text-white text-xs"></i>
+                  <i className="fas fa-arrow-right text-deepBlue text-xs"></i>
                 </motion.div>
               </div>
             </div>
@@ -119,16 +108,16 @@ const ServicesSection = () => {
   const ref = useRef(null)
 
   return (
-    <section className="py-12 lg:py-16 bg-gray-50" ref={ref}>
+    <section className="py-12 lg:py-16 bg-iceBlue/30" ref={ref}>
       <div className="container-custom">
         <ScrollReveal animation="fadeDown">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-xs font-semibold mb-4">
+            <span className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 text-xs font-semibold mb-4">
               <i className="fas fa-cogs"></i>
               What We Offer
             </span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-4">
-              Our Professional <span className="text-secondary">Services</span>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-deepBlue mb-4">
+              Our Professional <span className="text-gold">Services</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm">
               Comprehensive solutions tailored to meet your unique needs, helping you achieve your goals efficiently and effectively.
@@ -146,16 +135,17 @@ const ServicesSection = () => {
 
         <ScrollReveal animation="fadeUp" delay={0.3}>
           <div className="text-center mt-10">
-            <Button variant="moving" size="sm">
-              <Link to="/services" className="flex items-center gap-2">
-                <span>Explore All Services</span>
-                <motion.i
-                  className="fas fa-arrow-right text-xs"
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-              </Link>
-            </Button>
+            <Link 
+              to="/services" 
+              className="inline-flex items-center gap-2 bg-gold text-deepBlue font-semibold px-6 py-3 transition-all duration-300 hover:bg-yellow-500 hover:shadow-gold"
+            >
+              <span>Explore All Services</span>
+              <motion.i
+                className="fas fa-arrow-right text-sm"
+                animate={{ x: [0, 3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+            </Link>
           </div>
         </ScrollReveal>
       </div>

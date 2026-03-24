@@ -54,10 +54,7 @@ const Testimonials = () => {
         <title>Testimonials – JOEADAK TRADING ENTERPRISE</title>
         <meta name="description" content="Hear from clients and organizations about their experience working with JOEADAK TRADING ENTERPRISE. Read reviews and success stories." />
       </Helmet>
-      <section className="pt-32 pb-16 bg-gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-        </div>
+      <section className="pt-32 pb-16 bg-white relative overflow-hidden">
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -65,13 +62,13 @@ const Testimonials = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <span className="inline-block bg-white/10 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-medium mb-4">
               Client Feedback
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-deepBlue mb-6">
               What Our Clients Say
             </h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Hear from clients and organizations about their experience working with JOEADAK TRADING ENTERPRISE.
             </p>
           </motion.div>
@@ -80,7 +77,7 @@ const Testimonials = () => {
 
       <TestimonialCarousel />
 
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

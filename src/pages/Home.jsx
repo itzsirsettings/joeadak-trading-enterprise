@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import Hero from '../components/sections/Hero'
+import { LandingAccordionItem } from '../components/ui/InteractiveImageAccordion'
 import StatsSection from '../components/sections/StatsSection'
 import AboutPreview from '../components/sections/AboutPreview'
 import ServicesSection from '../components/sections/ServicesSection'
@@ -15,7 +15,7 @@ const Home = () => {
         <title>JOEADAK TRADING ENTERPRISE – Professional Freelance & Consulting Services</title>
         <meta name="description" content="Delivering reliable freelance, business support, consulting, and community services. Flexible solutions for businesses, organizations, and communities in Lagos, Nigeria." />
       </Helmet>
-      <Hero />
+      <LandingAccordionItem />
       <StatsSection />
       <AboutPreview />
       <ServicesSection />

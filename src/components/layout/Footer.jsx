@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import FooterPeople from '../../../images/footer-people.png'
-import JoeadakLogo from '../../../images/Joeadak logo 2D.png'
+import JoeadakLogo from '../../../images/Joeadak-logo-new.png'
 import { SITE, SOCIAL_LINKS } from '../../config/siteConfig'
 
 const Footer = () => {

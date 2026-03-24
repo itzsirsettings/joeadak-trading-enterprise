@@ -19,7 +19,7 @@ const ImageAccordion = ({ items, basePath }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.25 }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200"
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white shadow-2xl overflow-hidden border border-iceBlue"
       onMouseLeave={handleItemLeave}
     >
       <div 
@@ -30,7 +30,7 @@ const ImageAccordion = ({ items, basePath }) => {
           <div
             key={item.id || index}
             className={`
-              relative rounded-xl overflow-hidden cursor-pointer
+              relative overflow-hidden cursor-pointer
               transition-all duration-500 ease-in-out
               ${activeIndex === index ? 'w-[180px] h-full' : 'w-[40px] h-[90%]'}
             `}
@@ -59,10 +59,10 @@ const ImageAccordion = ({ items, basePath }) => {
           </div>
         ))}
       </div>
-      <div className="border-t border-gray-200 p-3 bg-gray-50">
+      <div className="border-t border-iceBlue p-3 bg-iceBlue/30">
         <Link
           to={basePath}
-          className="flex items-center justify-center gap-2 text-secondary font-semibold text-xs font-heading hover:bg-secondary/10 py-2 px-4 rounded-lg transition-colors"
+          className="flex items-center justify-center gap-2 text-gold font-semibold text-xs font-heading hover:bg-gold/10 py-2 px-4 transition-colors"
         >
           <span>View All</span>
           <i className="fas fa-arrow-right"></i>

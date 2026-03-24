@@ -12,7 +12,7 @@ const CTABanner = ({
 }) => {
 
   return (
-    <section className="py-12 lg:py-16 bg-gray-50 relative overflow-hidden">
+    <section className="py-12 lg:py-16 bg-iceBlue/30 relative overflow-hidden">
       <ScrollReveal animation="fadeUp">
         <div className="container-custom relative z-10">
           <CallToAction 

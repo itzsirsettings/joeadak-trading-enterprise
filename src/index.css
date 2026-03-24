@@ -1,4 +1,6 @@
-/* Fonts loaded in index.html: Bricolage Grotesque (headings) + Ubuntu (body) */
+/* Fonts: Bricolage Grotesque (headings) + Ubuntu (body) */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Ubuntu:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,10 +9,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 110%;
   }
   
   body {
     font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
     @apply text-gray-800 antialiased;
   }
   
@@ -19,29 +23,43 @@
     @apply font-bold;
   }
 
-  /* Global Sharp Edges Override */
-  * {
-    border-radius: 0 !important;
+  /* Global Curved Edges - 16px for all elements */
+  *, .sharp-edge {
+    border-radius: 16px !important;
+  }
+  
+  input, textarea, select, .rounded-input {
+    border-radius: 16px !important;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-secondary text-white px-6 py-3 rounded-lg font-semibold 
-           transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:-translate-y-0.5
+    @apply inline-flex items-center justify-center gap-2 bg-gold text-white px-6 py-3 font-semibold 
+           transition-all duration-300 hover:bg-yellow-600 hover:shadow-gold hover:-translate-y-0.5
            active:translate-y-0;
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg 
-           font-semibold transition-all duration-300 hover:bg-white hover:text-primary hover:shadow-lg
+    @apply inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-6 py-3 
+           font-semibold transition-all duration-300 hover:bg-white hover:text-deepBlue hover:shadow-lg
            active:scale-95;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 bg-transparent border-2 border-primary text-primary px-6 py-3 rounded-lg 
-           font-semibold transition-all duration-300 hover:bg-primary hover:text-white
+    @apply inline-flex items-center justify-center gap-2 bg-transparent border-2 border-deepBlue text-deepBlue px-6 py-3 
+           font-semibold transition-all duration-300 hover:bg-deepBlue hover:text-white
            active:scale-95;
+  }
+  
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold text-white px-6 py-3 font-semibold 
+           transition-all duration-300 hover:bg-yellow-600 hover:shadow-gold;
+  }
+  
+  .btn-sapphire {
+    @apply inline-flex items-center justify-center gap-2 bg-sapphire text-white px-6 py-3 font-semibold 
+           transition-all duration-300 hover:bg-blue-700 hover:shadow-sapphire;
   }
   
   .section-padding {
@@ -53,33 +71,57 @@
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
   }
 
   .glass-navbar {
-    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-lg;
+    @apply bg-deepBlue/95 backdrop-blur-xl border border-white/10 shadow-lg;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-orange-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold to-yellow-400;
+  }
+  
+  .gradient-text-sapphire {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sapphire to-blue-400;
   }
 
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
+  
+  .card-ice {
+    @apply bg-iceBlue/30 border border-iceBlue/50;
+  }
+  
+  .card-gold-border {
+    @apply border-2 border-gold hover:shadow-gold transition-all duration-300;
+  }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-deepBlue to-sapphire;
   }
   
-  .bg-gradient-primary {
-    @apply bg-gradient-to-br from-primary via-primary to-blue-900;
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold to-yellow-400;
+  }
+  
+  .bg-gradient-deep {
+    @apply bg-gradient-to-br from-deepBlue via-deepBlue to-sapphire;
   }
 
-  .bg-gradient-secondary {
-    @apply bg-gradient-to-br from-secondary to-orange-600;
+  .bg-gradient-sapphire {
+    @apply bg-gradient-to-br from-sapphire to-blue-600;
+  }
+  
+  .bg-gradient-gold {
+    @apply bg-gradient-to-br from-gold to-yellow-500;
+  }
+  
+  .bg-ice-blue {
+    @apply bg-iceBlue;
   }
 
   .animate-float {
@@ -124,16 +166,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0D3B66;
-  border-radius: 0px;
+  background: #000926;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF6F3C;
+  background: #C9A227;
 }
 
 ::selection {
-  background: #FF6F3C;
+  background: #C9A227;
   color: white;
 }
 
@@ -179,4 +221,80 @@
 
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration, 40s) infinite linear;
+}
+
+/* Renmoney-inspired Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out forwards;
 }

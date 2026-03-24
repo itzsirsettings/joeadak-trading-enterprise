@@ -29,3 +29,12 @@ export {
   ParallaxReveal,
   FadeInOnScroll,
 } from './ScrollReveal'
+export { default as Accordion } from './Accordion'
+export { default as Tabs, TabPanel, TabButton } from './Tabs'
+export { default as Carousel, CarouselItem, CarouselControls, CarouselIndicators } from './Carousel'
+export { 
+  AnimatedSection, 
+  AnimatedHeading, 
+  AnimatedText, 
+  AnimatedCard 
+} from './AnimatedSection'

@@ -7,16 +7,6 @@ import { Card, CardContent } from '@/components/ui/Card'
 import { GlowingEffect } from '@/components/ui/GlowingEffect'
 import { BouncyCard } from '@/components/ui/BouncyCard'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { cn } from '@/lib/utils'
-
-const logger = {
-  info: (context, message, data = {}) => {
-    console.info(`[MarqueeTestimonial] ${context}:`, message, data)
-  },
-  error: (context, error, data = {}) => {
-    console.error(`[MarqueeTestimonial] ${context}:`, error, data)
-  }
-}
 
 const testimonials = [
   {
@@ -59,7 +49,7 @@ const testimonials = [
 function TestimonialCard({ testimonial }) {
   return (
     <BouncyCard className="min-h-[12rem] w-[14rem] mx-2 list-none" springConfig={{ stiffness: 200, damping: 20 }}>
-      <div className="relative h-full rounded-lg border border-gray-200 bg-white p-2 shadow-sm">
+      <div className="relative h-full bg-iceBlue/30 p-2">
         <GlowingEffect
           spread={20}
           glow={true}
@@ -75,13 +65,13 @@ function TestimonialCard({ testimonial }) {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Avatar className="h-8 w-8 border-2 border-secondary/20">
+              <Avatar className="h-8 w-8 border-2 border-gold/30">
                 <AvatarImage src={testimonial.image} alt={testimonial.name} />
                 <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
               </Avatar>
               <div>
-                <p className="font-semibold text-primary text-xs">{testimonial.name}</p>
-                <p className="text-secondary text-[10px]">{testimonial.role}</p>
+                <p className="font-semibold text-deepBlue text-xs">{testimonial.name}</p>
+                <p className="text-gold text-[10px]">{testimonial.role}</p>
               </div>
             </motion.div>
             <motion.div
@@ -96,7 +86,7 @@ function TestimonialCard({ testimonial }) {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Star className="w-2 h-2 text-secondary fill-secondary" />
+                  <Star className="w-2 h-2 text-gold fill-gold" />
                 </motion.div>
               ))}
             </motion.div>
@@ -115,26 +105,18 @@ const MarqueeTestimonial = ({ title = "What Our Clients Say" }) => {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="py-12 lg:py-16 bg-gray-50 relative overflow-hidden" ref={ref}>
-      <motion.div
-        className="absolute top-0 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+    <section className="py-12 lg:py-16 bg-white relative overflow-hidden" ref={ref}>
+      <div className="absolute top-0 right-0 w-72 h-72 bg-gold/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-sapphire/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
 
       <div className="container-custom relative z-10">
         <ScrollReveal animation="fadeDown">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-xs font-semibold mb-4">
+            <span className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-1.5 text-xs font-semibold mb-4">
               <i className="fas fa-comments"></i>
               Testimonials
             </span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-deepBlue mb-4">
               {title}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm">
@@ -179,10 +161,10 @@ const MarqueeTestimonial = ({ title = "What Our Clients Say" }) => {
                   ))}
                 </Marquee>
                 
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-gray-50"></div>
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-gray-50"></div>
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-gray-50"></div>
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-gray-50"></div>
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-white"></div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-white"></div>
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white"></div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white"></div>
               </motion.div>
             </div>
           </motion.div>
@@ -192,7 +174,7 @@ const MarqueeTestimonial = ({ title = "What Our Clients Say" }) => {
           <div className="text-center mt-8">
             <motion.a
               href="/testimonials"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors text-sm"
+              className="inline-flex items-center gap-2 text-gold font-semibold hover:text-yellow-400 transition-colors text-sm"
               whileHover={{ x: 8 }}
               transition={{ type: "spring", stiffness: 300 }}
             >

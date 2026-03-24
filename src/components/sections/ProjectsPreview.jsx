@@ -3,18 +3,8 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Users, Calendar, Briefcase } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal'
 import { Card, CardContent } from '@/components/ui/Card'
-
-const logger = {
-  info: (context, message, data = {}) => {
-    console.info(`[ProjectsPreview] ${context}:`, message, data)
-  },
-  error: (context, error, data = {}) => {
-    console.error(`[ProjectsPreview] ${context}:`, error, data)
-  }
-}
 
 const projects = [
   {
@@ -54,7 +44,7 @@ const ProjectCard = ({ project, index }) => {
       <Link to="/projects">
         <Card 
           variant="lifted" 
-          className="group min-h-[16rem] cursor-pointer hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0)] transition-all duration-300 overflow-hidden"
+          className="group min-h-[16rem] cursor-pointer hover:-translate-y-1 transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-gold"
         >
           <CardContent className="flex flex-col h-full justify-between p-0">
             <div className="relative h-32 overflow-hidden">
@@ -65,10 +55,10 @@ const ProjectCard = ({ project, index }) => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.7 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-deepBlue/90 via-deepBlue/20 to-transparent"></div>
               
               <motion.span
-                className="absolute top-3 left-3 bg-secondary text-white text-[10px] font-semibold px-3 py-1 rounded-full shadow-lg flex items-center gap-1"
+                className="absolute top-3 left-3 bg-gold text-deepBlue text-[10px] font-semibold px-3 py-1 shadow-lg flex items-center gap-1"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -77,7 +67,7 @@ const ProjectCard = ({ project, index }) => {
               </motion.span>
 
               <motion.div
-                className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm text-primary text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"
+                className="absolute bottom-3 right-3 bg-iceBlue/95 backdrop-blur-sm text-deepBlue text-xs font-bold px-3 py-1 flex items-center gap-1"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -86,13 +76,13 @@ const ProjectCard = ({ project, index }) => {
             </div>
             
             <div className="p-4 flex flex-col flex-1">
-              <h3 className="text-sm font-bold text-primary mb-2">
+              <h3 className="text-sm font-bold text-deepBlue mb-2">
                 {project.title}
               </h3>
               <p className="text-gray-600 text-xs mb-3 leading-relaxed flex-1">
                 {project.description}
               </p>
-              <div className="flex items-center gap-2 text-secondary text-xs font-semibold group-hover:gap-3 transition-all">
+              <div className="flex items-center gap-2 text-gold text-xs font-semibold group-hover:gap-3 transition-all">
                 <span>View Details</span>
                 <motion.i
                   className="fas fa-arrow-right text-[10px]"
@@ -117,12 +107,12 @@ const ProjectsPreview = () => {
       <div className="container-custom">
         <ScrollReveal animation="fadeDown">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-xs font-semibold mb-4">
+            <span className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 text-xs font-semibold mb-4">
               <i className="fas fa-folder-open"></i>
               Our Portfolio
             </span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-4">
-              Featured <span className="text-secondary">Projects</span>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-deepBlue mb-4">
+              Featured <span className="text-gold">Projects</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm">
               Our work speaks for itself – see how we help organizations and communities achieve their goals.
@@ -140,16 +130,17 @@ const ProjectsPreview = () => {
 
         <ScrollReveal animation="fadeUp" delay={0.3}>
           <div className="text-center mt-10">
-            <Button variant="moving" size="sm">
-              <Link to="/projects" className="flex items-center gap-2">
-                <span>View All Projects</span>
-                <motion.i
-                  className="fas fa-arrow-right text-xs"
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-              </Link>
-            </Button>
+            <Link 
+              to="/projects" 
+              className="inline-flex items-center gap-2 bg-gold text-deepBlue font-semibold px-6 py-3 transition-all duration-300 hover:bg-yellow-500 hover:shadow-gold"
+            >
+              <span>View All Projects</span>
+              <motion.i
+                className="fas fa-arrow-right text-sm"
+                animate={{ x: [0, 3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+            </Link>
           </div>
         </ScrollReveal>
       </div>

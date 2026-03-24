@@ -77,7 +77,7 @@ const StatItem = ({ stat, isInView, index }) => {
   return (
     <StaggerItem animation="scaleUp">
       <BouncyCard className="min-h-[14rem] list-none">
-        <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
+        <div className="relative h-full bg-white p-3 shadow-sm">
           <GlowingEffect
             spread={40}
             glow={true}
@@ -86,26 +86,26 @@ const StatItem = ({ stat, isInView, index }) => {
             inactiveZone={0.01}
             borderWidth={2}
           />
-          <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl bg-white p-6">
+          <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl bg-iceBlue/20 p-6">
               <div className="relative z-10">
               <motion.div
-                className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4"
+                className="w-10 h-10 bg-gold/20 flex items-center justify-center mb-4"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Icon className="w-5 h-5 text-secondary" />
+                <Icon className="w-5 h-5 text-gold" />
               </motion.div>
               
               <div className="flex items-baseline gap-1 mb-1">
                 <motion.span
-                  className="text-3xl md:text-4xl font-bold text-primary"
+                  className="text-3xl md:text-4xl font-bold text-deepBlue"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   {displayValue}
                 </motion.span>
-                <span className="text-xl font-bold text-secondary">
+                <span className="text-xl font-bold text-sapphire">
                   {stat.suffix}
                 </span>
               </div>
@@ -125,15 +125,15 @@ const StatsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="py-12 lg:py-16 bg-gray-50 relative overflow-hidden">
+    <section className="py-12 lg:py-16 bg-iceBlue/30 relative overflow-hidden">
       <div className="container-custom relative z-10">
         <ScrollReveal animation="fadeDown">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-xs font-semibold mb-4">
+            <span className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 text-xs font-semibold mb-4">
               <i className="fas fa-trophy"></i>
               Our Track Record
             </span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-deepBlue mb-4">
               Numbers That Speak<br />for Themselves
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm">
@@ -155,16 +155,16 @@ const StatsSection = () => {
         <ScrollReveal animation="fadeUp" delay={0.4}>
           <div className="text-center mt-10">
             <motion.div
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full px-6 py-3 shadow-sm"
+              className="inline-flex items-center gap-3 bg-white border border-iceBlue px-6 py-3 shadow-sm"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <i className="fas fa-quote-left text-secondary text-sm"></i>
+              <i className="fas fa-quote-left text-gold text-sm"></i>
               <p className="text-gray-700 text-xs italic max-w-xl">
                 "Our success is measured by the growth and satisfaction of the organizations and communities we serve."
               </p>
             </motion.div>
-            <p className="text-secondary font-semibold mt-3 text-sm">— Akinwunmi Joseph, Founder</p>
+            <p className="text-gold font-semibold mt-3 text-sm">— Akinwunmi Joseph, Founder</p>
           </div>
         </ScrollReveal>
       </div>
